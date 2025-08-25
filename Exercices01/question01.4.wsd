@@ -1,0 +1,28 @@
+"4. On peut créer un nouvel acteur, mais qui est relié à l'acteur pompiste par une flèche. On apelle cela de la 
+généralisation. Ça veut dire que le pompiste spécialisé peut faire tout ce qu'un pompiste peut faire plus 
+d'autre actions."
+
+@startuml Station
+
+left to right direction
+
+actor Client
+actor Pompiste
+actor Spécialiste
+
+rectangle "Station Essence" {
+    usecase "mettre de l'essence dans une voiture" as UC1
+    usecase "remplir reservoir d'essence" as UC2
+    usecase "faire la maintenance de la station" as UC3
+}
+
+Client --> UC1
+
+Pompiste --> UC2
+
+Spécialiste --> UC3
+
+Spécialiste --|> Pompiste
+
+
+@enduml

@@ -1,0 +1,23 @@
+"3. Dans le cas où le diagramme ne possède pas l'acteur pompiste, alors nous aurions besoin d'un nouvel acteur.
+Donc, lorsque James vient remplir les réservoirs il devient l'acteur pompiste. Il peut changer son rôle selon
+l'action qu'il effectue sur le système. On rajouterait ceci au système:"
+
+
+@startuml Station
+
+left to right direction
+
+actor Client
+actor Pompiste
+
+rectangle "Station Essence" {
+    usecase "mettre de l'essence dans une voiture" as UC1
+    usecase "remplir reservoir d'essence" as UC2
+}
+
+Client --> UC1
+
+Pompiste --> UC2
+
+
+@enduml

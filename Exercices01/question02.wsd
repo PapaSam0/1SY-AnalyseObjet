@@ -1,0 +1,18 @@
+@startuml Shamazon
+left to right direction
+
+actor Utilisateur
+
+rectangle "Shamazon" {
+    usecase "Passer une commande" as UC1
+    usecase "Urgente" as UC2
+    usecase "Authentifier" as UC3
+    usecase "Expédier une commande" as UC4
+}
+
+Utilisateur --> UC1
+UC1 --> UC2 : <<extends>>
+UC1 --> UC3 : <<include>>
+Utilisateur --> UC4
+
+@enduml

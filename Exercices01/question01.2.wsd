@@ -1,0 +1,17 @@
+"2. James peut se servir de l'essence pour sa voiture en tant que client. Lorsqu'il agit ainsi, peu importe s'il
+possède un autre rôle à un autre moment, il devient un client. On a besoin de modéliser un nouvel acteur,
+le client. En PlantUML, on écrirait quelque chose comme ça:"
+
+@startuml Station
+
+left to right direction
+
+actor Client
+
+rectangle "Station Essence" {
+    usecase "mettre de l'essence dans une voiture" as UC1
+}
+
+Client --> UC1
+
+@enduml

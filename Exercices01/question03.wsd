@@ -1,0 +1,40 @@
+@startuml POS
+left to right direction
+
+actor Client
+actor Caissier
+actor Responsable
+actor Banque
+
+
+rectangle "P.O.S." {
+    usecase "Scanner articles" as UC1
+    usecase "Entrer quantité" as UC2
+    usecase "Signaler la fin de vente" as UC5
+    usecase "Choisir mode de paiement" as UC7
+    usecase "Liquide" as UC8
+    usecase "Chèque" as UC9
+    usecase "Carte de crédit" as UC10
+    usecase "Appliquer coupons" as UC13
+    usecase "Initialiser caisses" as UC15
+    usecase "Payer" as UCPay
+}
+
+actor Stocks
+
+
+Caissier--> UC1
+Caissier --> UC5
+UC1 --> UC2 : <<extends>>
+UC5 --> Stocks
+Client --> UCPay
+Caissier --> UC7
+UCPay <|-- UC8
+UCPay <|-- UC9
+UCPay <|-- UC10
+UCPay <|-- UC13 
+UC10 --> Banque
+Responsable --> UC15
+
+
+@enduml

@@ -1,0 +1,8 @@
+1. L'acteur du système est le client qui se sert de l'essence, car il a un rôle extérieur au système.
+Il interragi avec lui. Le pistolet et la gâchette font parti du système et ne fonctionnent pas sans que 
+le client interagissent avec eux.
+
+
+
+
+
