@@ -1,0 +1,31 @@
+@startuml QASystem
+actor Employee as employee
+boundary System_app as app
+entity Scanner as scanner
+control System as system
+database Database as data
+participant Non_Conformity_Protocol as nc
+
+
+employee -> app : Open Login Page
+
+app -> system : Submit Login Form
+
+system -> data : Validate Credentials
+
+data --> system : Credentials Valid/Invalid
+
+system -> app : Display Scanner App or Error Message
+
+
+
+
+employee -> scanner : Use Scanner
+scanner -> system : Send Piece's Data
+
+alt Piece is Conform
+    system -> data : Save Serial Number
+else Piece is not Conform
+    system -> nc : Non Conformity Procedure
+end
+@endum

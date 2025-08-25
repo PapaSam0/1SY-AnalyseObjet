@@ -1,0 +1,16 @@
+@startuml Omnivox
+actor Student as student
+boundary App as app
+control AppServer as server
+participant SAP as sap
+
+student -> app : Open Omnivox App
+app -> server : Submit Login Informations
+server -> sap : Transfer Login Informations
+sap -> server : Confirm Login
+server -> app : Display App
+app -> server : Request Scores Screen Display
+server -> sap : Fetches Scores Data
+sap -> server : Sends scores Data
+server -> app : Displays Scores Screen
+@enduml

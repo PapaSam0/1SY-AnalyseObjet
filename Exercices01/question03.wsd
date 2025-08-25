@@ -25,14 +25,14 @@ actor Stocks
 
 Caissier--> UC1
 Caissier --> UC5
-UC1 --> UC2 : <<extends>>
+UC1 <-. UC2 : <<extends>>
 UC5 --> Stocks
 Client --> UCPay
 Caissier --> UC7
 UCPay <|-- UC8
 UCPay <|-- UC9
 UCPay <|-- UC10
-UCPay <|-- UC13 
+UC5 <-. UC13 : <<extends>>
 UC10 --> Banque
 Responsable --> UC15
 
