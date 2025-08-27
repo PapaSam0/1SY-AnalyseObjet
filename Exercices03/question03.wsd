@@ -1,0 +1,27 @@
+@startuml CSBuddy
+object Membre{
+    nom
+    alias
+    --
+    communiquer()
+}
+object Ami{
+    nom
+    alias
+}
+object Groupe{
+    nom
+    alias
+}
+object Anniversaires{
+    date
+    --
+    célébrer()
+}
+
+Groupe o-- "3..*" Membre
+Membre "1..1" -- "1..5000" Ami : Peut avoir
+(Membre, Ami) -- Anniversaires
+
+
+@enduml

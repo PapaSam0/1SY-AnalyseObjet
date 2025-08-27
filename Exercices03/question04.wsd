@@ -1,0 +1,15 @@
+@startuml Arbre
+object Noeud{
+    nom : string
+}
+object Fichier{
+    contenu : byte[]
+}
+object Répertoire{
+   
+}
+
+Noeud <|-- Fichier
+Noeud <|-- Répertoire
+Noeud --* Répertoire
+@enduml

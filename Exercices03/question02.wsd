@@ -1,0 +1,19 @@
+@startuml OK
+left to right direction
+object Personne
+object Appartement
+
+
+Personne : nom
+Appartement : adresse
+object Bail{
+    date
+    --
+    renouveller()
+}
+
+Personne "1..1" -- "1..*" Appartement : Possède
+(Personne, Appartement) --  Bail 
+
+
+@enduml

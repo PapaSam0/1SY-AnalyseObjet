@@ -1,0 +1,26 @@
+@startuml Angel
+object CompagnieAerienne{
+    nom
+}
+object Vol{
+    dateHeureDepart
+    dateHeureArrivée
+}
+object Aéroport{
+    nom
+    noIdentification
+}
+Object Ville{
+    nom
+}
+Object Escale{
+    dateHeureDepart
+    dateHeureArrivée
+}
+
+Ville "1..1" -- "0..*" Aéroport : Possède
+CompagnieAerienne "1..*" -- "0..*" Aéroport : Possède
+
+Vol o-- "0..*" Escale
+Vol "1..*" -- "1..1" CompagnieAerienne : Fait partie d'une
+@enduml
