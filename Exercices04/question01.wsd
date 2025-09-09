@@ -1,0 +1,16 @@
+@startuml H20
+left to right direction
+
+State Liquid
+State Solid
+State Gas
+
+Solid --> Liquid : Fusion [Température atteint point de fusion]
+Liquid --> Gas : Vaporisation [Température atteint point de vaporisation]
+Gas --> Solid : Condensation [Température atteint point de condensation]
+
+Solid --> Gas : Sublimation [Température atteint point de sublimation]
+Gas --> Liquid : Liquéfation [Température atteint point de liquéfaction]
+Liquid --> Solid : Solidification [Température atteint point de solidification]
+
+@enduml

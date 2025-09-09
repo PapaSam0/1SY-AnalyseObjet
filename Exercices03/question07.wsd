@@ -1,0 +1,57 @@
+@startuml CanadianTire
+title CanadianTire – Modèle du domaine (objets)
+
+object Marque {
+  nom 
+}
+
+object Succursale {
+  code
+  adresse
+}
+
+object Produit {
+  Prix
+  nom
+}
+
+object Inventaire {
+  stock
+}
+
+object Circulaire {
+  titre
+  dateDebut
+  dateFin
+}
+
+object Caisse{
+    type
+    marque
+}
+
+object SystèmePaiement{
+    type
+}
+
+
+/'Succursale -- Caisse : possède
+Employes -- Caisse : opère
+
+
+Magasin -- Succursale : possede
+Magasin -- Circulaire : publie
+
+(Succursale, Produit) -- Inventaire : stocke
+Circulaire -- Produit : annonce'/
+
+Marque -- Succursale : possède
+(Succursale, Produit) -- Inventaire : stocke
+Marque -- Circulaire : publie
+Succursale -- Caisse : possède
+Caisse -- SystèmePaiement : possède
+
+
+
+
+@enduml
