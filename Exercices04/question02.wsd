@@ -1,0 +1,21 @@
+@startuml TokTok
+State Ouvert
+State Fermé
+State Déverouillée
+
+State Verouillée{
+    State Simple{
+
+    }
+    State Double{
+
+    }
+}
+
+Fermé --> Verouillée : Vérifier si verouillé [Verouillé]
+Fermé --> Déverouillée : Vérifier si verouillé [Déverouillé]
+Déverouillée --> Ouvert
+Ouvert --> Fermé
+Verouillée --> Fermé
+
+@enduml

@@ -5,10 +5,7 @@ object Membre{
     --
     communiquer()
 }
-object Ami{
-    nom
-    alias
-}
+
 object Groupe{
     nom
     alias
@@ -20,8 +17,9 @@ object Anniversaires{
 }
 
 Groupe o-- "3..*" Membre
-Membre "1..1" -- "1..5000" Ami : Peut avoir
-(Membre, Ami) -- Anniversaires
+Membre -- Membre 
+(Membre, Membre) -- Anniversaires
+
 
 
 @enduml

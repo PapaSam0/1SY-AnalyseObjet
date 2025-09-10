@@ -34,6 +34,12 @@ object SystèmePaiement{
     type
 }
 
+object Vente 
+object ligne_achat{
+    prix
+    quantité
+}
+
 
 /'Succursale -- Caisse : possède
 Employes -- Caisse : opère
@@ -51,7 +57,6 @@ Marque -- Circulaire : publie
 Succursale -- Caisse : possède
 Caisse -- SystèmePaiement : possède
 
-
-
+(Vente, Produit) -- ligne_achat
 
 @enduml

@@ -19,9 +19,9 @@ system -> app : Display Scanner App or Error Message
 
 
 
-
-employee -> scanner : Use Scanner
+employee -> scanner : Scan 3D piece
 scanner -> system : Send Piece's Data
+system -> system : Validate
 
 alt Piece is Conform
     system -> data : Save Serial Number

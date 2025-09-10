@@ -6,6 +6,7 @@ le système calcule le total et affiche le montant à payer."
 @startuml Caisse
 title Passage à la caisse
 
+
 actor "Client" as cli
 actor "Caissier" as cais
 control "Système Caisse" as sys

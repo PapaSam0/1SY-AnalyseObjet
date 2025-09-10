@@ -1,0 +1,11 @@
+@startuml Windows
+State Créée
+State Visible{
+    State Normale 
+    State Agrandie
+    State Réduite
+}
+
+
+
+@enduml
