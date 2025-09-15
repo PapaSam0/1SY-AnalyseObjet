@@ -1,0 +1,35 @@
+@startuml
+
+object CompagnieAerienne { 
+  nom
+}
+
+object Vol {
+  dateHeureDepart
+  dateHeureArrivee
+}
+
+object Aeroport {
+  nom
+  noIdentification
+}
+
+object Ville {
+  nom
+}
+
+object Escale {
+  dateHeureDepart
+  dateHeureArrivee
+}
+
+CompagnieAerienne -- Vol : opere
+
+
+Vol -- Aeroport : arrive_a
+
+Aeroport -- Ville : est_situe_dans
+
+(Vol, Aeroport) -- Escale : fait_escale_a
+
+@enduml

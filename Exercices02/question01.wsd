@@ -1,0 +1,25 @@
+@startuml Omnivox
+title Omnivox - Consultation des notes (essentiel)
+
+actor "Etudiant" as etu
+boundary "Application Mobile" as app 
+control Serveur
+participant SAP
+database BaseDeDonnées
+
+etu -> app : Ouvre l'app et demande les notes
+app --> etu : Affiche écran d'identifiant
+
+etu -> app : Saisit identifiant + mot de passe
+app -> Serveur : Requête d'authentification
+Serveur -> SAP : Vérifier identifiants
+SAP --> Serveur : Authentification OK
+Serveur --> app : Confirmation OK
+
+app -> Serveur : Demande les notes
+Serveur -> BaseDeDonnées : Lire les notes
+BaseDeDonnées --> Serveur : Résultats
+Serveur --> app : Notes
+app --> etu : Affiche les notes
+
+@enduml

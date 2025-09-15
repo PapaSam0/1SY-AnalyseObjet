@@ -1,0 +1,25 @@
+@startuml
+
+object Livre {
+    titre : String
+    edition : String
+}
+
+object Recette {
+    nom_recette : String
+    difficulte : String
+    temps_prep : Duration
+    temps_cuisson : Duration
+    portions : int
+}
+
+object Ingredient {
+    nom : String
+    quantite : Decimal
+    unite : String
+}
+
+Livre "1..1" -- "50..75" Recette : contient
+Recette "1..*" *-- Ingredient : utilise
+
+@enduml

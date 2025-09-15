@@ -1,0 +1,18 @@
+@startuml
+
+object Noeud {
+  nom: string
+}
+
+object Fichier {
+  contenu : byte[]
+}
+
+object Répertoire {
+}
+
+Noeud -- Fichier
+Noeud -- Répertoire
+Répertoire *-- "0..*" Noeud : contient
+
+@enduml

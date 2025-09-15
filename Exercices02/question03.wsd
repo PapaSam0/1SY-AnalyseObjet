@@ -1,0 +1,33 @@
+"Un client fait ses achats à la caisse 
+Pour chaque article le caissier scanne le code-barres 
+et le système enregistre le prix. Quand tous les articles sont scannés 
+le système calcule le total et affiche le montant à payer."
+
+@startuml
+title Passage à la caisse
+
+actor "Client" as cli
+actor "Caissier" as cais
+control "Système Caisse" as sys
+database "Base de prix" as db
+
+cli -> cais : Présente ses articles
+cais -> sys : Ouvrir transaction
+sys --> cais : Transaction prête
+
+loop Pour chaque article
+  cais -> sys : Scanner code-barres
+  sys -> db : Chercher prix
+  db --> sys : Prix de l'article
+  sys --> cais : Affiche prix
+  cais --> cli : Annonce prix
+end
+
+sys --> cais : Calcule le total
+cais --> cli : Montant à payer
+cli -> cais : Paiement
+cais -> sys : Enregistrer paiement
+sys --> cais : Reçu
+cais --> cli : Remet le reçu
+
+@enduml

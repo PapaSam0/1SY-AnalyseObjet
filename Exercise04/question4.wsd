@@ -1,0 +1,29 @@
+@startuml Life is Life
+
+[*] --> Vivant : naitre
+
+state Vivant {
+  [*] --> Mineur
+
+  state Mineur
+  state Majeur {
+    [*] --> Celibataire
+    state Celibataire
+    state Marie
+    state Veuf
+    state Divorce
+
+    Celibataire --> Marie : se_marier
+    Marie --> Veuf        : deces_conjoint
+    Marie --> Divorce     : divorcer
+    Veuf --> Marie        : se_remarier
+    Divorce --> Marie     : se_remarier
+  }
+
+  Mineur --> Majeur : atteindre_majorite [age >= 18]
+}
+
+Vivant --> Decede : deceder
+state Decede
+Decede --> [*]
+@enduml

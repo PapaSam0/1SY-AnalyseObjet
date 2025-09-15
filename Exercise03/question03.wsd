@@ -1,0 +1,27 @@
+@startuml
+title CSBuddy
+left to right direction
+
+object Membre {
+  nom
+  alias
+}
+
+object Amitie {
+   dateDebut
+}
+
+object MessagePriver {
+  Message
+}
+
+object Groupe {
+  nom
+  alias
+  Message 
+}
+Membre "1..5000" -- Amitie: peut avoir
+(Membre, Amitie) -- MessagePriver     
+Membre -- MessagePriver         
+Membre -- Groupe     
+@enduml

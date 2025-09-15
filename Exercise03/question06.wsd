@@ -1,0 +1,35 @@
+@startuml
+title CanadianTire – Modèle du domaine (objets)
+left to right direction
+
+object Client {
+  nom 
+}
+
+object Succursale {
+  code
+  adresse
+}
+
+object Produit {
+  Prix
+  nom
+}
+
+object Inventaire {
+  Stock
+}
+
+object Circulaire {
+  titre
+  dateDebut
+  dateFin
+}
+
+Client -- Succursale : possede
+Client -- Circulaire : publie
+
+(Succursale, Produit) -- Inventaire : stocke
+Circulaire -- Produit : annonce
+
+@enduml

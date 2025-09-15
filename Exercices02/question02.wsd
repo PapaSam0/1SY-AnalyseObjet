@@ -1,0 +1,30 @@
+@startuml
+title QASystem
+
+actor "Employé" as emp
+boundary "Scanner 3D" as scan
+control "QASystem" as sys
+database "BD Inventaire" as inv
+
+emp -> sys : Se connecter (id, mot de passe)
+sys --> emp : Authentification OK
+
+emp -> scan : Démarrer le scan
+scan -> sys : Données 3D de la pièce
+
+
+alt Pièce conforme
+  sys --> emp : Pièce conforme
+  emp -> scan : Scanner numéro de série
+  scan -> sys : Numéro de série
+  sys -> inv : Ajouter pièce à l'inventaire
+  inv --> sys : OK
+  sys --> emp : Ajout confirmé
+else Pièce non conforme
+  sys --> emp : Pièce non conforme
+  ref over sys
+    Déclencher la procédure de non-conformité
+  end ref
+end
+
+@enduml

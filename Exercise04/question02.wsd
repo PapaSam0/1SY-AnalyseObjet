@@ -1,0 +1,19 @@
+@startuml Tok Tok
+
+[*] --> Fermee
+
+state Ouverte
+state Fermee
+state Verrouillee_Simple
+state Verrouillee_Double
+
+Fermee --> Ouverte : ouvrir
+Ouverte --> Fermee : fermer
+
+Fermee --> Verrouillee_Simple : verrouiller [1 tour]
+Verrouillee_Simple --> Fermee : déverrouiller [1 tour]
+
+Fermee --> Verrouillee_Double : verrouiller [2 tours]
+Verrouillee_Double --> Fermee : déverrouiller [2 tours]
+
+@enduml

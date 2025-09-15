@@ -1,0 +1,15 @@
+@startuml H2O
+
+[*] --> Solide
+
+state Solide
+state Liquide
+state Gaz
+
+Solide --> Liquide : chauffer [T >= 0°C]
+Liquide --> Solide : refroidir [T <= 0°C]
+
+Liquide --> Gaz    : chauffer [T >= 100°C]
+Gaz --> Liquide    : refroidir [T < 100°C]
+
+@enduml

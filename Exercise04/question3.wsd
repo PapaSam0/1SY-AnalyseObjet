@@ -1,0 +1,22 @@
+@startuml Windows
+
+[*] --> Créee
+
+state Créee
+state Visible {
+  state Normale
+  state Agrandie
+  state Reduite
+}
+
+Créee --> Visible : afficher
+Visible --> Créee : fermer
+
+Normale --> Agrandie : maximiser
+Agrandie --> Normale : restaurer
+
+Normale --> Reduite : réduire
+Agrandie --> Reduite : réduire
+
+Reduite --> Normale : restaurer
+@enduml
